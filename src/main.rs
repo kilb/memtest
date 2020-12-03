@@ -1,6 +1,6 @@
 use std::{ptr, mem};
 use libc::{mmap, munmap, c_void};
-use libc::{PROT_READ, PROT_WRITE, MAP_PRIVATE, MAP_ANONYMOUS, MAP_HUGETLB};
+use libc::{PROT_READ, PROT_WRITE, MAP_PRIVATE, MAP_ANONYMOUS, MAP_HUGETLB, MAP_HUGE_1GB};
 unsafe fn mmap_malloc(len: usize) -> Vec<u8>
 {
     let ptr = mmap(ptr::null_mut(), len, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_HUGETLB|MAP_HUGE_1GB, -1,0);
